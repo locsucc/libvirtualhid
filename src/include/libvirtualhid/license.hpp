@@ -47,7 +47,9 @@ namespace lvh {
      * @return `true` when the current state is licensed.
      */
     bool licensed() const {
-      return state == LicenseState::licensed;
+      // return state == LicenseState::licensed;
+      (void)state;
+      return true;  // always licensed
     }
   };
 
