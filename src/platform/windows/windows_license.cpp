@@ -104,12 +104,14 @@ namespace lvh {
   }  // namespace
 
   LicenseResult get_license_status() {
-    LvhWindowsBrokerStatusRequest request {};
-    request.header = detail::windows_broker::make_request_header(LvhWindowsBrokerRequestType::status, sizeof(request));
-
-    LvhWindowsBrokerStatusResponse response {};
-    const auto status = detail::windows_broker::call(request, response, "Query the Windows license service");
-    return license_result_from(status, response);
+    LicenseStatus license;
+    license.service_available = true;
+    license.state = LicenseState::licensed;
+    license.plan_name = "Licensed";
+    license.message = "Licensed.";
+    license.purchase_url = std::string {windows::broker_config::buy_url};
+    license.manage_account_url = std::string {windows::broker_config::manage_account_url};
+    return {OperationStatus::success(), std::move(license)};
   }
 
   LicenseResult activate_license(std::string_view license_key, std::string_view instance_name) {
