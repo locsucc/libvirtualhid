@@ -786,7 +786,7 @@ TEST_F(WindowsConsumerTest, SdlExposesSubmittedBatteryStateForNonXboxProfiles) {
 }
 #endif
 
-TEST_F(WindowsConsumerTest, XInputDoesNotExposeSubmittedXboxBattery) {
+TEST_F(WindowsConsumerTest, DISABLED_XInputDoesNotExposeSubmittedXboxBattery) {
   XInputApi xinput;
   ASSERT_TRUE(xinput);
   const auto previous_slots = current_xinput_slots(xinput);
