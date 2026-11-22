@@ -55,7 +55,7 @@ jobs:
       azure_signing_account: ${{ vars.AZURE_SIGNING_ACCOUNT }}
       azure_signing_cert_profile: ${{ vars.AZURE_SIGNING_CERT_PROFILE }}
       azure_signing_endpoint: ${{ vars.AZURE_SIGNING_ENDPOINT }}
-      publish_release: ${{ needs.setup_release.outputs.publish_release }}
+      publish_release: ${{ (needs.setup_release.outputs.publish_release == 'true' && startsWith(github.repository, 'LizardByte/')) && 'true' || 'false' }}
       release_commit: ${{ needs.setup_release.outputs.release_commit }}
       release_version: ${{ needs.setup_release.outputs.release_version }}
     secrets:
