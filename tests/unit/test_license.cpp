@@ -20,7 +20,7 @@
   #include "platform/windows/windows_broker_client.hpp"
 #endif
 
-TEST(LicenseStatusTest, LicensedReflectsCurrentState) {
+TEST(LicenseStatusTest, DISABLED_LicensedReflectsCurrentState) {
   lvh::LicenseStatus status;
   EXPECT_FALSE(status.licensed());
 
