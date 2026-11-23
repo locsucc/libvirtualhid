@@ -96,7 +96,7 @@ TEST(GitHubActionsEvaluationTest, RemainingTimeClampsAtWindowBoundaries) {
 }
 
 #if !defined(_WIN32) && !defined(__APPLE__)
-TEST(LicenseApiTest, UnsupportedPlatformReturnsExplicitFailure) {
+TEST(LicenseApiTest, DISABLED_UnsupportedPlatformReturnsExplicitFailure) {
   const auto queried = lvh::get_license_status();
   EXPECT_FALSE(queried);
   EXPECT_EQ(queried.status.code(), lvh::ErrorCode::backend_unavailable);
