@@ -14,6 +14,12 @@ namespace lvh {
 
     LicenseResult unavailable_result() {
       auto status = OperationStatus::failure(ErrorCode::backend_unavailable, "License management is not available on this platform");
+      LicenseStatus license;
+      license.service_available = true;
+      license.state = LicenseState::licensed;
+      license.plan_name = "Licensed";
+      license.message = "Licensed.";
+      return {OperationStatus::success(), std::move(license)};
     }
 
   }  // namespace
